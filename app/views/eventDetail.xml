@@ -1,0 +1,36 @@
+<Alloy>
+	<Collection src="webNews" />
+	<Window id="w">
+		<TableView dataCollection="webNews"  dataFilter="filterByName">
+
+			<TableViewRow layout="vertical" >
+				<Label text="{name}" bottom="10dp" />
+				<ImageView image="{image}" top="20dp" />
+				<Label text="{fullDes}" bottom="20dp" />
+				
+				
+			</TableViewRow>
+			
+			<TableViewRow bottom="20dp">
+				<Label text="organizer:" left="true"></Label>
+				<Label text="{organizer}"   layout="right" ></Label>
+			</TableViewRow>
+			<TableViewRow bottom="20dp">
+				<Label text="Date:" left="true"></Label>
+				<Label text="{date}"   layout="right" ></Label>
+			</TableViewRow>
+			<TableViewRow bottom="20dp">
+				<Label text="startTime:" left="true"></Label>
+				<Label text="{startTime}"  layout="right" />
+			</TableViewRow>
+			<TableViewRow bottom="20dp">
+				<Label text="endTime:" left="true"></Label>
+				<Label text="{endTime}"   layout="right" ></Label>
+			</TableViewRow>
+			<TableViewRow bottom="20dp">  
+				<Button onClick="showAddress" venue="{venue}">address</Button>
+			</TableViewRow>
+		</TableView>
+	</Window>
+
+</Alloy>

@@ -1,0 +1,65 @@
+<Alloy>
+	<Collection src="webNews" />
+	<Collection src="venues"></Collection>
+	<TabGroup id="index">
+
+		<Tab title="HKBU Event" icon="KS_nav_ui.png" id="mainTab">
+			<Window title="HKBU Event">
+				<TableView dataCollection="webNews" >
+					<TableViewRow layout="vertical">
+						<ImageView image="{image}" top="20dp" />
+						<Label text="{shortDes}" bottom="20dp" />
+						<Button onClick="showDetail" name="{name}"  >showDetail</Button>
+					</TableViewRow>
+				</TableView>
+			</Window>
+		</Tab>
+		<Tab title="Deprtment" icon="KS_nav_views.png" id="eventTab" >
+			<Window title="Departments">
+				<TableView onClick="tableClick">
+					<TableViewSection headerTitle=" University Offices">
+						<TableViewRow title="Office of Student Affairs" fid="uwide" from="department"/>
+						<TableViewRow title="Academic Registry" fid="uwide" from="department"/>
+					</TableViewSection>
+					<TableViewSection headerTitle=" Faculty of Science" >
+						<TableViewRow title="computer Science" dep="comp" from="department"/>
+						<TableViewRow title="Maths" fid="sci" from="department"/>
+					</TableViewSection>
+				</TableView>
+			</Window>
+		</Tab>
+		<Tab title="Venues" icon="KS_nav_views.png"  id="venueTab">
+			<Window title="Venues">
+
+				<TableView dataCollection="venues"    onClick="tableClick" dataTransform="sortCampus"  >
+					<TableViewSection headerTitle="{h}" >
+						<TableViewRow title = "{VenueName}" from="venue" fid="{VenueID}"/>
+					</TableViewSection>
+				</TableView>
+
+			
+			</Window>
+		</Tab>
+		<Tab title="Map" icon="KS_nav_views.png" id="mapTab">
+			<Window title="Map" navBarHidden="true">
+				<Module id="mapView" module="ti.map" method="createView" userLocation="true"  onClick="addressClick" dataCollection="venues"  dataTransform="mapTransform">
+					<!-- <Button title="Move" bottom="10dp" onClick="btClick"  /> -->
+				</Module>
+			</Window>
+		</Tab>
+		<Tab title="Me" icon="KS_nav_views.png">
+			<Window title="Me">
+				<TableView   >
+					
+					<TableViewSection  >
+						<TableViewRow ><ImageView image="/head.png" top="20dp"  /></TableViewRow> 
+						<TableViewRow title = "User:     Duan Sheng"> </TableViewRow>
+						<TableViewRow title = "Logoff/login"/>
+						<TableViewRow title = "Registered Event" onClick="showRegistedEvents"/>
+						<TableViewRow title = "About Us"/ >
+					</TableViewSection>
+				</TableView>
+			</Window>
+		</Tab>
+	</TabGroup>
+</Alloy>

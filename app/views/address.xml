@@ -1,0 +1,12 @@
+<Alloy>
+	<Collection src="venues" />
+	
+			<Window title="Map" >
+				<Module id="mapView" module="ti.map" method="createView" userLocation="true" dataCollection="venues" dataFilter="filterFunction" dataTransform="transform">
+					<!-- <Annotation title="{VenueID}" />					 -->
+					<!-- <Button title="Move" bottom="10dp" onClick="btClick" /> -->
+				</Module>
+			</Window>
+		
+	
+</Alloy>

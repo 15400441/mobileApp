@@ -1,0 +1,35 @@
+"Window": {
+	backgroundColor: "#fff"
+}
+
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000",
+	font: {
+		fontSize: 20,
+		fontFamily: 'Helvetica Neue'
+	},
+	textAlign: 'center'
+} 
+
+"#mapView": { region: {
+latitude: 22.337827, longitude: 114.181962,
+latitudeDelta: 0.006,
+longitudeDelta: 0.006 }
+}
+
+"#acHall": {
+latitude: 22.341072,
+longitude: 114.179645, title: "AC Hall",
+subtitle: "hkbu" }
+
+"TableViewSection":{
+	
+	height: "20dp",
+	textAlign:"left"
+	
+}
+"Annotation[platform=ios]": {
+     rightButton: Titanium.UI.iPhone.SystemButton.DISCLOSURE
+}
