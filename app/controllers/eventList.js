@@ -20,7 +20,7 @@ function filterFunction(collection) {
 	}
 
 	else if (from == "venue") {
-		console.log("venue");
+		
 		return collection.where({
 			venue : fid
 		});
@@ -45,7 +45,7 @@ function getDetail(e) {
 		Alloy.Globals.tabGroup.activeTab.open(eventDetailController.getView());
 	}
 	if ("department" == from) {
-		var eventDetailController = Alloy.createController("eventDetail", {
+		var eventDetailController = Alloy.createController("eventDetail",  {
 			from : "department",
 			name : name
 		});

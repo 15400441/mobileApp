@@ -8,10 +8,10 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function __alloyId47(e) {
+    function __alloyId44(e) {
         if (e && e.fromAdapter) return;
-        __alloyId47.opts || {};
-        var models = filterByName(__alloyId46);
+        __alloyId44.opts || {};
+        var models = filterByName(__alloyId43);
         var len = models.length;
         var rows = [];
         for (var i = 0; len > i; i++) {
@@ -69,12 +69,12 @@ function Controller() {
             });
             rows.push(__alloyId31);
             var __alloyId33 = Ti.UI.createLabel({
-                text: "startTime:",
+                text: "time:",
                 left: "true"
             });
             __alloyId31.add(__alloyId33);
             var __alloyId35 = Ti.UI.createLabel({
-                text: "undefined" != typeof __alloyId9.__transform["startTime"] ? __alloyId9.__transform["startTime"] : __alloyId9.get("startTime"),
+                text: "undefined" != typeof __alloyId9.__transform["time"] ? __alloyId9.__transform["time"] : __alloyId9.get("time"),
                 layout: "right"
             });
             __alloyId31.add(__alloyId35);
@@ -82,26 +82,21 @@ function Controller() {
                 bottom: "20dp"
             });
             rows.push(__alloyId37);
-            var __alloyId39 = Ti.UI.createLabel({
-                text: "endTime:",
-                left: "true"
-            });
-            __alloyId37.add(__alloyId39);
-            var __alloyId41 = Ti.UI.createLabel({
-                text: "undefined" != typeof __alloyId9.__transform["endTime"] ? __alloyId9.__transform["endTime"] : __alloyId9.get("endTime"),
-                layout: "right"
-            });
-            __alloyId37.add(__alloyId41);
-            var __alloyId43 = Ti.UI.createTableViewRow({
-                bottom: "20dp"
-            });
-            rows.push(__alloyId43);
-            var __alloyId45 = Ti.UI.createButton({
+            var __alloyId39 = Ti.UI.createButton({
                 title: "address",
                 venue: "undefined" != typeof __alloyId9.__transform["venue"] ? __alloyId9.__transform["venue"] : __alloyId9.get("venue")
             });
-            __alloyId43.add(__alloyId45);
-            showAddress ? $.addListener(__alloyId45, "click", showAddress) : __defers["__alloyId45!click!showAddress"] = true;
+            __alloyId37.add(__alloyId39);
+            showAddress ? $.addListener(__alloyId39, "click", showAddress) : __defers["__alloyId39!click!showAddress"] = true;
+            var __alloyId41 = Ti.UI.createTableViewRow({
+                bottom: "20dp"
+            });
+            rows.push(__alloyId41);
+            var __alloyId42 = Ti.UI.createButton({
+                title: "regist"
+            });
+            __alloyId41.add(__alloyId42);
+            regist ? $.addListener(__alloyId42, "click", regist) : __defers["__alloyId42!click!regist"] = true;
         }
         $.__views.__alloyId8.setData(rows);
     }
@@ -127,6 +122,17 @@ function Controller() {
             });
             Alloy.Globals.tabGroup.activeTab.open(addressController.getView());
         }
+    }
+    function regist(e) {
+        var id = e.source.id;
+        var xhr = Ti.Network.createHTTPClient();
+        xhr.onload = function() {
+            alert(this.responseText);
+        };
+        xhr.open("POST", "http://localhost:1337/activity/registerOne");
+        xhr.send({
+            id: id
+        });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "eventDetail";
@@ -154,10 +160,10 @@ function Controller() {
         id: "__alloyId8"
     });
     $.__views.w.add($.__views.__alloyId8);
-    var __alloyId46 = Alloy.Collections["webNews"] || webNews;
-    __alloyId46.on("fetch destroy change add remove reset", __alloyId47);
+    var __alloyId43 = Alloy.Collections["webNews"] || webNews;
+    __alloyId43.on("fetch destroy change add remove reset", __alloyId44);
     exports.destroy = function() {
-        __alloyId46.off("fetch destroy change add remove reset", __alloyId47);
+        __alloyId43.off("fetch destroy change add remove reset", __alloyId44);
     };
     _.extend($, $.__views);
     var args = arguments[0] || {};
@@ -168,7 +174,8 @@ function Controller() {
         $.destroy();
     });
     Alloy.Collections.webNews.fetch();
-    __defers["__alloyId45!click!showAddress"] && $.addListener(__alloyId45, "click", showAddress);
+    __defers["__alloyId39!click!showAddress"] && $.addListener(__alloyId39, "click", showAddress);
+    __defers["__alloyId42!click!regist"] && $.addListener(__alloyId42, "click", regist);
     _.extend($, exports);
 }
 

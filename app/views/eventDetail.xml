@@ -20,15 +20,15 @@
 				<Label text="{date}"   layout="right" ></Label>
 			</TableViewRow>
 			<TableViewRow bottom="20dp">
-				<Label text="startTime:" left="true"></Label>
-				<Label text="{startTime}"  layout="right" />
+				<Label text="time:" left="true"></Label>
+				<Label text="{time}"  layout="right" />
 			</TableViewRow>
-			<TableViewRow bottom="20dp">
-				<Label text="endTime:" left="true"></Label>
-				<Label text="{endTime}"   layout="right" ></Label>
-			</TableViewRow>
+			
 			<TableViewRow bottom="20dp">  
 				<Button onClick="showAddress" venue="{venue}">address</Button>
+			</TableViewRow>
+			<TableViewRow bottom="20dp">  
+				<Button onClick="regist" id="{id}">regist</Button>
 			</TableViewRow>
 		</TableView>
 	</Window>

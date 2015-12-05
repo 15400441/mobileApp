@@ -1,1 +1,1 @@
-module.exports = [{"isId":true,"priority":100000.0002,"key":"mapView","style":{region:{latitude:22.337827,longitude:114.181962,latitudeDelta:0.006,longitudeDelta:0.006,},}}];
+module.exports = [{"isId":true,"priority":100000.0001,"key":"mapView","style":{region:{latitude:22.337827,longitude:114.181962,latitudeDelta:0.006,longitudeDelta:0.006,},}}];

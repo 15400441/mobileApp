@@ -40,5 +40,22 @@ function showAddress(e) {
 		Alloy.Globals.tabGroup.activeTab.open(addressController.getView());
 	}
 
+};
+
+function regist(e)
+{
+	var id=e.source.id;
+	var xhr=Ti.Network.createHTTPClient();
+		xhr.onload=function(e)
+		{
+			
+			alert(this.responseText);
+			
+		};
+		
+		xhr.open('POST','http://localhost:1337/activity/registerOne');
+		xhr.send({ 
+			'id':id
+		});
 }
 

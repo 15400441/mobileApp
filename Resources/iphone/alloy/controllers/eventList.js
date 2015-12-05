@@ -8,22 +8,22 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function __alloyId55(e) {
+    function __alloyId52(e) {
         if (e && e.fromAdapter) return;
-        __alloyId55.opts || {};
-        var models = filterFunction(__alloyId54);
+        __alloyId52.opts || {};
+        var models = filterFunction(__alloyId51);
         var len = models.length;
         var rows = [];
         for (var i = 0; len > i; i++) {
-            var __alloyId51 = models[i];
-            __alloyId51.__transform = {};
-            var __alloyId53 = Ti.UI.createTableViewRow({
-                title: "undefined" != typeof __alloyId51.__transform["name"] ? __alloyId51.__transform["name"] : __alloyId51.get("name"),
-                name: "undefined" != typeof __alloyId51.__transform["name"] ? __alloyId51.__transform["name"] : __alloyId51.get("name")
+            var __alloyId48 = models[i];
+            __alloyId48.__transform = {};
+            var __alloyId50 = Ti.UI.createTableViewRow({
+                title: "undefined" != typeof __alloyId48.__transform["name"] ? __alloyId48.__transform["name"] : __alloyId48.get("name"),
+                name: "undefined" != typeof __alloyId48.__transform["name"] ? __alloyId48.__transform["name"] : __alloyId48.get("name")
             });
-            rows.push(__alloyId53);
+            rows.push(__alloyId50);
         }
-        $.__views.__alloyId50.setData(rows);
+        $.__views.__alloyId47.setData(rows);
     }
     function filterFunction(collection) {
         if ("department" == from) {
@@ -32,12 +32,9 @@ function Controller() {
                 organizer: dep
             });
         }
-        if ("venue" == from) {
-            console.log("venue");
-            return collection.where({
-                venue: fid
-            });
-        }
+        if ("venue" == from) return collection.where({
+            venue: fid
+        });
         if ("regist" == from) {
             console.log("regist");
             return collection.where({
@@ -91,15 +88,15 @@ function Controller() {
         id: "win"
     });
     $.__views.win && $.addTopLevelView($.__views.win);
-    $.__views.__alloyId50 = Ti.UI.createTableView({
-        id: "__alloyId50"
+    $.__views.__alloyId47 = Ti.UI.createTableView({
+        id: "__alloyId47"
     });
-    $.__views.win.add($.__views.__alloyId50);
-    var __alloyId54 = Alloy.Collections["webNews"] || webNews;
-    __alloyId54.on("fetch destroy change add remove reset", __alloyId55);
-    getDetail ? $.addListener($.__views.__alloyId50, "click", getDetail) : __defers["$.__views.__alloyId50!click!getDetail"] = true;
+    $.__views.win.add($.__views.__alloyId47);
+    var __alloyId51 = Alloy.Collections["webNews"] || webNews;
+    __alloyId51.on("fetch destroy change add remove reset", __alloyId52);
+    getDetail ? $.addListener($.__views.__alloyId47, "click", getDetail) : __defers["$.__views.__alloyId47!click!getDetail"] = true;
     exports.destroy = function() {
-        __alloyId54.off("fetch destroy change add remove reset", __alloyId55);
+        __alloyId51.off("fetch destroy change add remove reset", __alloyId52);
     };
     _.extend($, $.__views);
     var args = arguments[0] || {};
@@ -112,7 +109,7 @@ function Controller() {
     $.win.addEventListener("close", function() {
         $.destroy();
     });
-    __defers["$.__views.__alloyId50!click!getDetail"] && $.addListener($.__views.__alloyId50, "click", getDetail);
+    __defers["$.__views.__alloyId47!click!getDetail"] && $.addListener($.__views.__alloyId47, "click", getDetail);
     _.extend($, exports);
 }
 

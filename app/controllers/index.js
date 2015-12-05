@@ -1,15 +1,17 @@
 $.index.open();
 Alloy.Collections.webNews.fetch();
 
+
 // Alloy.Globals.eventTab = $.eventTab;
 // Alloy.Globals.mainTab = $.mainTab;
 // Alloy.Globals.venueTab = $.venueTab;
 // Alloy.Globals.mapTab = $.mapTab;
+Alloy.Globals.u = $.u;
 
 Alloy.Globals.tabGroup = $.index;
 
 function tableClick(e) {
-	alert(e.row.from);
+	
 	
 	if ("department" == e.row.from) {
 		var eventListController = Alloy.createController('eventList', {
@@ -61,27 +63,10 @@ function sortCampus(model) {
 	return transform;
 };
 
-// function filterFunction(collection) {
-// return collection.where({
-// CampusID : "HSH"
-// });
-// };
 
-// function filterFunction1(collection)
-// {
-//
-// return collection.where({CampusID:"BURC"});
-// };
-//
-// function filterFunction2(collection)
-// {
-//
-// return collection.where({CampusID:"SHAW"});
-// };
 
 function showDetail(e) {
-	//alert($.name);
-	//alert(e.name) ;
+	
 	var eventDetailController = Alloy.createController("eventDetail", {
 		name : e.source.name,
 		from : "venue",
@@ -89,6 +74,7 @@ function showDetail(e) {
 
 	Alloy.Globals.tabGroup.activeTab.open(eventDetailController.getView());
 };
+
 
 function mapTransform(model)
 {
@@ -100,15 +86,46 @@ function mapTransform(model)
 	return transform;
 };
 
+function login(e)
+{
+	
+	if(Alloy.Globals.u.title=="")
+	{
+	
+var loginController = Alloy.createController('login');
+		
+    Alloy.Globals.tabGroup.activeTab.open(loginController.getView());
+   }
+   
+   else{
+   	var xhr=Ti.Network.createHTTPClient();
+		xhr.onload=function(e)
+		{
+			alert(this.responseText);
+			Alloy.Globals.u.title="";
+			
+			
+		};
+		
+		xhr.open('POST','http://localhost:1337/user/loginOutMobile');
+		xhr.send({ 
+			
+		});
+   }
+	
+}
+
 
 function showRegistedEvents(e)
 {
-	var eventListController = Alloy.createController('eventList', {
-			from :  "regist",
-			eventName: "Singing Contest"
-		});
+	
+	var registedActivitesController = Alloy.createController('registedActivities');
 		
-		Alloy.Globals.tabGroup.activeTab.open(eventListController.getView());
+    Alloy.Globals.tabGroup.activeTab.open(registedActivitesController.getView());
 }
+
+
+
+	
 
 

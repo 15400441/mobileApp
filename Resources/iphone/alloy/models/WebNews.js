@@ -6,16 +6,15 @@ exports.definition = {
             id: "INTEGER PRIMARY KEY",
             name: "text",
             venue: "text",
-            startTime: "text",
-            endTime: "text",
             organizer: "text",
             quota: "text",
             fullDes: "text",
             image: "text",
             shortDes: "text",
-            date: "text"
+            date: "text",
+            time: "text"
         },
-        URL: "http://thirdsail.herokuapp.com/event/json",
+        URL: "http://localhost:1337/activity/json",
         debug: 1,
         adapter: {
             type: "sqlrest",

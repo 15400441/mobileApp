@@ -1,0 +1,10 @@
+<Alloy>
+	<Collection src="activities" />
+	
+			<Window id='win'>
+				<TableView dataCollection="activities"  onClick = "getDetail" >
+					<TableViewRow title = "{name}"  name="{name}" />
+				</TableView>
+			</Window>
+		
+</Alloy>

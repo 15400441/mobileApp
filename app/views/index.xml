@@ -49,13 +49,13 @@
 		</Tab>
 		<Tab title="Me" icon="KS_nav_views.png">
 			<Window title="Me">
-				<TableView   >
+				<TableView >
 					
 					<TableViewSection  >
 						<TableViewRow ><ImageView image="/head.png" top="20dp"  /></TableViewRow> 
-						<TableViewRow title = "User:     Duan Sheng"> </TableViewRow>
-						<TableViewRow title = "Logoff/login"/>
-						<TableViewRow title = "Registered Event" onClick="showRegistedEvents"/>
+						<TableViewRow title = "" id="u"> </TableViewRow>
+						<TableViewRow title = "Logoff/login" onClick="login"/>
+						<TableViewRow title = "Registered Event" onClick="showRegistedEvents "/>
 						<TableViewRow title = "About Us"/ >
 					</TableViewSection>
 				</TableView>
